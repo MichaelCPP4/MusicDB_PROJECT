@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d159ca61ed674bb5a7ddef5960b2c6cb" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="MusicDBModel.Album" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.Artist" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.Genre" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.Playlist" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.Role" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.Track" Width="1.5" PointX="4.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicDBModel.User" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="MusicDBModel.FK_Albums_Artists" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicDBModel.FK_Tracks_Albums" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicDBModel.FK__Users__RoleId__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicDBModel.PlaylistTracks" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicDBModel.TrackGenres" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MusicDBModel.TrackList" Width="1.5" PointX="7.125" PointY="7.375" />
+        <EntityTypeShape EntityType="MusicDBModel.AlbumList" Width="1.5" PointX="6.125" PointY="9.625" />
+        <EntityTypeShape EntityType="MusicDBModel.ArtistView" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MusicDBModel.PlaylistView" Width="1.5" PointX="9.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

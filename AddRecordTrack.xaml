@@ -1,0 +1,23 @@
+﻿<Window x:Class="MusicDB_PROJECT.AddRecordTrack"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicDB_PROJECT"
+        mc:Ignorable="d"
+        Title="Добавить трек" Height="460" Width="355" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <Label x:Name="label" Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25" Width="160"/>
+        <TextBox x:Name="textBoxLyrics" HorizontalAlignment="Left" Margin="10,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" Height="168"/>
+        <Label x:Name="label_Copy1" Content="Текст песни:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Height="25" Width="155"/>
+        <Button x:Name="addButton" Content="Добавить" Click="Add_Click" HorizontalAlignment="Left" Margin="10,388,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="closeButton" Content="Отмена" Click="Close_Click" HorizontalAlignment="Left" Margin="272,388,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="labelAlbum" Content="Альбом:" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Height="25" Width="160"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="textBoxLength" HorizontalAlignment="Left" Margin="10,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="label_Copy3" Content="Длительность:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="25" Width="160"/>
+        <Label x:Name="label_Copy" Content="Жанр:" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Height="25" Width="160"/>
+        <ComboBox x:Name="comboBoxGenre" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="156"/>
+    </Grid>
+</Window>

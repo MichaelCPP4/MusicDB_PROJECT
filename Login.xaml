@@ -1,0 +1,32 @@
+﻿<Window x:Class="MusicDB_PROJECT.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicDB_PROJECT"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="305" Width="285" Activated="Window_Activated" ResizeMode="NoResize">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch">
+        <Label>Пользователь</Label>
+        <TextBox x:Name="tbLogin" Margin="5"/>
+        <Label>Пароль</Label>
+        <PasswordBox x:Name="pwBox" PasswordChar="*" Margin="5"/>
+        <Grid x:Name="grid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="txtCaptcha" Grid.Row="0" Background="#FFB3B3B3"
+                       FontSize="24" TextAlignment="Center"/>
+            <Line x:Name="line" Grid.Row="0" Stroke="Black"/>
+            <TextBox x:Name="tbCaptcha" Grid.Row="1" Margin="5"/>
+        </Grid>
+        <Button x:Name="Enter" Content="Войти" IsDefault="True" Click="Enter_Click"
+                Margin="3" Padding="3" HorizontalAlignment="Stretch"/>
+        <Button x:Name="GuestEnter" Content="Войти как гость" Click="GuestEnter_Click"
+                Margin="3" Padding="3" HorizontalAlignment="Stretch"/>
+        <Button x:Name="Cancel" Content="Отмена" Click="Cancel_Click"
+                Margin="3" Padding="3" HorizontalAlignment="Stretch"/>
+
+    </StackPanel>
+</Window>

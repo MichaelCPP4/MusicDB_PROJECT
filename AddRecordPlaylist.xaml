@@ -1,0 +1,17 @@
+﻿<Window x:Class="MusicDB_PROJECT.AddRecordPlaylist"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicDB_PROJECT"
+        mc:Ignorable="d"
+        Title="Добавить плейлист" Height="330" Width="365" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+        <Label x:Name="label" Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25" Width="160"/>
+        <TextBox x:Name="textBoxDescription" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" Height="168"/>
+        <Label x:Name="label_Copy1" Content="Описание:" HorizontalAlignment="Left" Margin="11,54,0,0" VerticalAlignment="Top" Height="25" Width="155"/>
+        <Button x:Name="addButton" Content="Добавить" Click="Add_Click" HorizontalAlignment="Left" Margin="11,252,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="closeButton" Content="Отмена" Click="Close_Click" HorizontalAlignment="Left" Margin="273,252,0,0" VerticalAlignment="Top" FontSize="14"/>
+    </Grid>
+</Window>

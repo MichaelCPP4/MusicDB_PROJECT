@@ -1,0 +1,116 @@
+﻿<Window x:Class="MusicDB_PROJECT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicDB_PROJECT"
+        mc:Ignorable="d"
+        Title="Музыкальный каталог" x:Name="mainWindow" Height="600" Width="890" Initialized="Window_Initialized" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10,1,10,10" Grid.Row="1">
+            <Button x:Name="AddButton" Content="Добавить" Width="80" Click="AddButton_Click"/>
+            <Button x:Name="EditButton" Content="Редактировать" Width="87" Click="EditButton_Click"/>
+            <Button x:Name="DeleteButton" Content="Удалить" Width="80" Click="DeleteButton_Click"/>
+            <TextBox x:Name="textBoxseach" Text="" Width="150"></TextBox>
+            <Button x:Name="seachButton" Content="Поиск по треку" Width="95" Click="SeachButton_Click"/>
+            <Button x:Name="filterButton" Content="Фильтр треков" Width="95" Click="FilterButton_Click"/>
+            <Button x:Name="resetButton" Content="Перезагрузить" Width="95" Click="ResetButton_Click"/>
+        </StackPanel>
+
+
+        <TabControl x:Name="tabControl" Grid.Row="2" SelectionChanged="tabControl_SelectionChanged">
+            <TabItem Header="Артисты">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="artistsListView" Margin="10,10,357,10" ItemsSource="{Binding}" SelectionChanged="ArtistsListView_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Страна" DisplayMemberBinding="{Binding Country}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label x:Name="label" Content="Биография исполнителя:" Margin="0,4,178,0" HorizontalAlignment="Right" Width="174" Height="26" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBoxArtists" IsReadOnly="True" Margin="0,35,10,10" TextWrapping="Wrap" HorizontalAlignment="Right" Width="342"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Альбомы">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="albumListView" Margin="10,10,10,10" ItemsSource="{Binding}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding AlbumName}"/>
+                                <GridViewColumn Header="Артист" DisplayMemberBinding="{Binding Artist}"/>
+                                <GridViewColumn Header="Дата выхода" DisplayMemberBinding="{Binding ReleaseYear}"/>
+                                <GridViewColumn Header="Жанр" DisplayMemberBinding="{Binding Genre}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Треки">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="trackListView" Margin="10,10,312,10" ItemsSource="{Binding}" SelectionChanged="TrackListView_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding TrackName}"/>
+                                <GridViewColumn Header="Исполнитель" DisplayMemberBinding="{Binding Artist}"/>
+                                <GridViewColumn Header="Альбом" DisplayMemberBinding="{Binding Album}"/>
+                                <GridViewColumn Header="Продолжительность в сек." DisplayMemberBinding="{Binding Duration}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView x:Name="trackGenreListView" Margin="0,10,10,0" ItemsSource="{Binding}" Loaded="TrackGenreListView_Loaded" Height="234" VerticalAlignment="Top" HorizontalAlignment="Right" Width="297">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Жанр" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Кол-во треков" DisplayMemberBinding="{Binding Count}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox x:Name="textBoxLyrics" Margin="0,270,10,10" TextWrapping="Wrap" IsReadOnly="True" HorizontalAlignment="Right" Width="297"/>
+                    <Label x:Name="label1" Content="Текст песни:" Margin="0,244,177,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Плейлисты">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="playlistsListView" Margin="10,10,0,21" ItemsSource="{Binding}" SelectionChanged="playlistListView_SelectionChanged" HorizontalAlignment="Left" Width="417">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding PlaylistName}"/>
+                                <GridViewColumn Header="Кол-во треков" DisplayMemberBinding="{Binding TrackCount}"/>
+                                <GridViewColumn Header="Продолжительность" DisplayMemberBinding="{Binding PlaylistDuration}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView x:Name="tracksInplaylistsListView" Margin="432,30,0,21" ItemsSource="{Binding}" SelectionChanged="ArtistsListView_SelectionChanged" HorizontalAlignment="Left" Width="418">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Track Name" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Length" DisplayMemberBinding="{Binding Length}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="AddButtonTrackInPlaylist" Content="Добавить трек в плейлист" Click="AddButtonTrackInPlaylist_Click" Margin="432,10,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="158"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Menu x:Name="menu" Margin="0,0,685,0">
+            <MenuItem Header="Опции">
+                <MenuItem Header="Поиск" Click="SeachButton_Click"/>
+                <MenuItem Header="Фильтр" Click="FilterButton_Click"/>
+                <MenuItem Header="Перезагрузить" Click="ResetButton_Click"/>
+                <MenuItem x:Name="AddMenu" Header="Добавить запись" Click="AddButton_Click"/>
+                <MenuItem x:Name="EditMenu" Header="Редактировать запись" Click="EditButton_Click"/>
+                <MenuItem x:Name="DeleteMenu" Header="Удалить запись" Click="DeleteButton_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="Info" Header="О программе" Click="Info_Click"/>
+            <MenuItem x:Name="Exit" Header="Выход" Click="Exit_Click"/>
+        </Menu>
+    </Grid>
+</Window>
